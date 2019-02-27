@@ -16,15 +16,14 @@ class ViewController: UIViewController {
 
     var countries: [String] = []
     var score: Int = 0
-    var correctAnswer = 0
-    var rounds = 0
-
-    var endGame = {
-
-    }
+    var correctAnswer: Int = 0
+    var rounds: Int = 0
+    var shouldDisplayScore: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Show score", style: .plain, target: self, action: #selector(toggleScore))
 
         self.countries += [
             "estonia", "france", "germany",
@@ -48,7 +47,7 @@ class ViewController: UIViewController {
         correctAnswer = Int.random(in: 0...2)
 
         let country = self.formatCountry(name: self.countries[correctAnswer])
-        self.title = "\(country) | Score: \(score)"
+        self.title = "\(country)"
 
         self.button1.setImage(UIImage(named: self.countries[0]), for: .normal)
         self.button2.setImage(UIImage(named: self.countries[1]), for: .normal)
@@ -83,6 +82,16 @@ class ViewController: UIViewController {
 
     func formatCountry(name: String) -> String {
         return name.count > 2 ? name.capitalized : name.uppercased()
+    }
+
+    @objc func toggleScore() {
+        shouldDisplayScore = !shouldDisplayScore
+
+        if shouldDisplayScore {
+            self.navigationItem.rightBarButtonItem?.title = "Score: \(score)"
+        } else {
+            self.navigationItem.rightBarButtonItem?.title = "Show Score"
+        }
     }
 
 }
