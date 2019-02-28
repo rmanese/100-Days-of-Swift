@@ -13,7 +13,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 
     var webView: WKWebView!
     var progressView: UIProgressView!
-    var websites: [String] = ["google.com", "youtube.com", "facebook.com", "apple.com", "hackingwithswift.com", "stackoverflow.com"]
+    var websites: [String] = []
 
     let https: String = "https://www."
     var website: String = ""
@@ -26,6 +26,12 @@ class ViewController: UIViewController, WKNavigationDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if let websiteURLs = Bundle.main.url(forResource: "Website", withExtension: "txt") {
+            if let websites = try? String(contentsOf: websiteURLs) {
+                self.websites = websites.components(separatedBy: "\n")
+            }
+        }
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
 
@@ -56,16 +62,15 @@ class ViewController: UIViewController, WKNavigationDelegate {
         let url = navigationAction.request.url
 
         if let host = url?.host {
-            for website in websites {
+            for website in self.websites {
                 if host.contains(website) {
                     decisionHandler(.allow)
                     return
-                } else {
-                    let ac = UIAlertController(title: "Blocked website", message: "That website is blocked", preferredStyle: .alert)
-                    ac.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-                    self.present(ac, animated: true)
                 }
             }
+            let ac = UIAlertController(title: "Blocked website", message: "That website is blocked", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            self.present(ac, animated: true)
         }
 
         decisionHandler(.cancel)

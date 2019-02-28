@@ -1,0 +1,13 @@
+google.com
+apple.com
+netflix.com
+youtube.com
+duolingo.com
+facebook.com
+twitter.com
+espn.com
+ebay.com
+amazon.com
+vimeo.com
+instagram.com
+target.com
