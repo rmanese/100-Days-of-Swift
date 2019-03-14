@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Challenge3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="QP7-Uj-dAj">
+                                <rect key="frame" x="24" y="28" width="327" height="50"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="327" placeholderIntrinsicHeight="110" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0va-Oe-Lxb">
+                                <rect key="frame" x="24" y="102" width="327" height="110"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0va-Oe-Lxb" secondAttribute="trailing" constant="24" id="Uy9-XK-sc7"/>
+                            <constraint firstItem="0va-Oe-Lxb" firstAttribute="top" secondItem="QP7-Uj-dAj" secondAttribute="bottom" constant="24" id="VFx-aq-0T6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QP7-Uj-dAj" secondAttribute="trailing" constant="24" id="WSY-xm-mUp"/>
+                            <constraint firstItem="QP7-Uj-dAj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="gFz-pD-Zvl"/>
+                            <constraint firstItem="QP7-Uj-dAj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="hQw-qW-jkh"/>
+                            <constraint firstItem="0va-Oe-Lxb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="lCK-rX-uZn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="lettersStackView" destination="0va-Oe-Lxb" id="dCI-vz-UdS"/>
+                        <outlet property="livesStackView" destination="QP7-Uj-dAj" id="y2a-MX-eDW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="37.600000000000001" y="26.53673163418291"/>
+        </scene>
+    </scenes>
+</document>
