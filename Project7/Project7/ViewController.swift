@@ -121,7 +121,6 @@ class ViewController: UIViewController {
             for col in 0..<5 {
                 let letterButton = UIButton(type: .system)
                 letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
-                letterButton.setTitle("WWW", for: .normal)
                 letterButton.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
 
                 let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
@@ -136,7 +135,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadLevel()
+        performSelector(inBackground: #selector(loadLevel), with: nil)
     }
 
     @objc func letterTapped(_ sender: UIButton) {
@@ -185,7 +184,7 @@ class ViewController: UIViewController {
         level += 1
 
         solutions.removeAll(keepingCapacity: true)
-        loadLevel()
+        performSelector(inBackground: #selector(loadLevel), with: nil)
 
         for button in letterButtonsArray {
             button.isHidden = false
@@ -202,7 +201,7 @@ class ViewController: UIViewController {
         activatedButtons.removeAll()
     }
 
-    func loadLevel() {
+    @objc func loadLevel() {
         var clueString = ""
         var solutionString = ""
         var letterBits = [String]()
@@ -229,13 +228,15 @@ class ViewController: UIViewController {
             }
         }
 
-        cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
-        answersLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
+        DispatchQueue.main.async {
+            self.cluesLabel.text = clueString.trimmingCharacters(in: .whitespacesAndNewlines)
+            self.answersLabel.text = solutionString.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        letterButtonsArray.shuffle()
-        if letterButtonsArray.count == letterBits.count {
-            for i in 0..<letterButtonsArray.count {
-                letterButtonsArray[i].setTitle(letterBits[i], for: .normal)
+            self.letterButtonsArray.shuffle()
+            if self.letterButtonsArray.count == letterBits.count {
+                for i in 0..<self.letterButtonsArray.count {
+                    self.letterButtonsArray[i].setTitle(letterBits[i], for: .normal)
+                }
             }
         }
 
