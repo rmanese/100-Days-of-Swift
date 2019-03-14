@@ -76,6 +76,8 @@ class ViewController: UIViewController {
 
         let buttonView = UIView()
         buttonView.translatesAutoresizingMaskIntoConstraints = false
+        buttonView.layer.borderWidth = 2
+        buttonView.layer.borderColor = UIColor.gray.cgColor
         view.addSubview(buttonView)
 
         NSLayoutConstraint.activate([
@@ -162,7 +164,21 @@ class ViewController: UIViewController {
                 ac.addAction(UIAlertAction(title: "Let's go!", style: .default, handler: levelUp))
                 present(ac, animated: true)
             }
+        } else {
+            let ac = UIAlertController(title: "Invalid word", message: nil, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Try Again", style: .default, handler: handleInvalidAnswer))
+            present(ac, animated: true)
         }
+    }
+
+    func handleInvalidAnswer(action: UIAlertAction) {
+        currentAnswer.text = ""
+
+        for button in activatedButtons {
+            button.isHidden = false
+        }
+
+        activatedButtons.removeAll()
     }
 
     func levelUp(action: UIAlertAction) {
