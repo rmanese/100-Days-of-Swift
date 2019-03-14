@@ -19,6 +19,10 @@ class ViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credit", style: .plain, target: self, action: #selector(didTapCredit))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(didTapFilter))
 
+        performSelector(inBackground: #selector(fetchJSON), with: nil)
+    }
+
+    @objc func fetchJSON() {
         let urlString: String
         if self.navigationController?.tabBarItem.tag == 0 {
             urlString = "https://www.hackingwithswift.com/samples/petitions-1.json"
@@ -28,12 +32,11 @@ class ViewController: UITableViewController {
 
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
-                self.parse(json: data)
+                parse(json: data)
                 return
             }
         }
-
-        showError()
+        performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
     }
 
     @objc func didTapFilter() {
@@ -65,7 +68,7 @@ class ViewController: UITableViewController {
         self.present(ac, animated: true)
     }
 
-    func showError() {
+    @objc func showError() {
         let ac = UIAlertController(title: "Loading Error", message: "There was a problem loading the feed. Check your connection and try again.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(ac, animated: true)
@@ -76,7 +79,9 @@ class ViewController: UITableViewController {
         if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
             self.petitions = jsonPetitions.results
             self.filteredPetitions = jsonPetitions.results
-            tableView.reloadData()
+            tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        } else {
+            performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
         }
     }
 
