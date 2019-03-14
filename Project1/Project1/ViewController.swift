@@ -19,20 +19,21 @@ class ViewController: UITableViewController {
         self.title = "Storm Viewer"
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
+        performSelector(inBackground: #selector(loadImages), with: nil)
+    }
+
+    @objc func loadImages() {
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
 
         for item in items {
             if item.hasPrefix("nssl") {
-                // this is a picture to load
                 self.pictures.append(item)
             }
         }
-
         self.pictures = self.pictures.sorted()
         ViewController.totalPictures = self.pictures.count
-        print(self.pictures)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
