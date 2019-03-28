@@ -13,6 +13,7 @@
 		D2692C9A223B093300099EF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2692C99223B093300099EF6 /* Assets.xcassets */; };
 		D2692C9D223B093300099EF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2692C9B223B093300099EF6 /* LaunchScreen.storyboard */; };
 		D2692CA5223B120A00099EF6 /* Letters.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2692CA4223B120A00099EF6 /* Letters.txt */; };
+		D2692CA7223B23B300099EF6 /* Words.txt in Resources */ = {isa = PBXBuildFile; fileRef = D2692CA6223B23B300099EF6 /* Words.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D2692C9C223B093300099EF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2692C9E223B093300099EF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2692CA4223B120A00099EF6 /* Letters.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Letters.txt; sourceTree = "<group>"; };
+		D2692CA6223B23B300099EF6 /* Words.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Words.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +60,12 @@
 			children = (
 				D2692C92223B092E00099EF6 /* AppDelegate.swift */,
 				D2692C94223B092E00099EF6 /* ViewController.swift */,
+				D2692CA6223B23B300099EF6 /* Words.txt */,
+				D2692CA4223B120A00099EF6 /* Letters.txt */,
 				D2692C96223B092E00099EF6 /* Main.storyboard */,
 				D2692C99223B093300099EF6 /* Assets.xcassets */,
 				D2692C9B223B093300099EF6 /* LaunchScreen.storyboard */,
 				D2692C9E223B093300099EF6 /* Info.plist */,
-				D2692CA4223B120A00099EF6 /* Letters.txt */,
 			);
 			path = Challenge3;
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2692CA7223B23B300099EF6 /* Words.txt in Resources */,
 				D2692CA5223B120A00099EF6 /* Letters.txt in Resources */,
 				D2692C9D223B093300099EF6 /* LaunchScreen.storyboard in Resources */,
 				D2692C9A223B093300099EF6 /* Assets.xcassets in Resources */,

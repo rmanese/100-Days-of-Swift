@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rd3-TD-aRm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,30 +18,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="QP7-Uj-dAj">
-                                <rect key="frame" x="24" y="28" width="327" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="200" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NgK-kH-uqB">
+                                <rect key="frame" x="24" y="202" width="327" height="200"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="327" placeholderIntrinsicHeight="110" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0va-Oe-Lxb">
-                                <rect key="frame" x="24" y="102" width="327" height="110"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="110" translatesAutoresizingMaskIntoConstraints="NO" id="CqQ-fT-l3j">
+                                <rect key="frame" x="24" y="72" width="327" height="110"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0va-Oe-Lxb" secondAttribute="trailing" constant="24" id="Uy9-XK-sc7"/>
-                            <constraint firstItem="0va-Oe-Lxb" firstAttribute="top" secondItem="QP7-Uj-dAj" secondAttribute="bottom" constant="24" id="VFx-aq-0T6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QP7-Uj-dAj" secondAttribute="trailing" constant="24" id="WSY-xm-mUp"/>
-                            <constraint firstItem="QP7-Uj-dAj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="gFz-pD-Zvl"/>
-                            <constraint firstItem="QP7-Uj-dAj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="hQw-qW-jkh"/>
-                            <constraint firstItem="0va-Oe-Lxb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="lCK-rX-uZn"/>
+                            <constraint firstItem="CqQ-fT-l3j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="9yP-hq-gnS"/>
+                            <constraint firstItem="CqQ-fT-l3j" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="DIp-RD-071"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CqQ-fT-l3j" secondAttribute="trailing" constant="24" id="KlK-lk-5gr"/>
+                            <constraint firstItem="NgK-kH-uqB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="XtD-6j-AFd"/>
+                            <constraint firstItem="NgK-kH-uqB" firstAttribute="top" secondItem="CqQ-fT-l3j" secondAttribute="bottom" constant="20" id="gv7-fr-0LO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NgK-kH-uqB" secondAttribute="trailing" constant="24" id="xIZ-vF-qMK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sTL-ck-Y2o"/>
                     <connections>
-                        <outlet property="lettersStackView" destination="0va-Oe-Lxb" id="dCI-vz-UdS"/>
-                        <outlet property="livesStackView" destination="QP7-Uj-dAj" id="y2a-MX-eDW"/>
+                        <outlet property="lettersStackView" destination="NgK-kH-uqB" id="ih2-RR-aUm"/>
+                        <outlet property="livesStackView" destination="CqQ-fT-l3j" id="dEu-HR-1sk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976.79999999999995" y="26.53673163418291"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TEg-da-heE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rd3-TD-aRm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DcK-fe-rAv">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="MSG-oF-di9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wDH-Xt-cZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="37.600000000000001" y="26.53673163418291"/>
         </scene>

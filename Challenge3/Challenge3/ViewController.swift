@@ -14,50 +14,55 @@ class ViewController: UIViewController {
     @IBOutlet var lettersStackView: UIStackView!
 
     var alphabetArray = [String]()
+    var wordsArray = [String]()
     var lettersButtonArray = [UIButton]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         performSelector(inBackground: #selector(loadAlphabet), with: nil)
+        performSelector(inBackground: #selector(loadWords), with: nil)
 
         layoutLivesStackView()
         layoutLetterStackView()
     }
 
     private func layoutLivesStackView() {
+        livesStackView.spacing = 5
+        livesStackView.distribution = .fillEqually
         for _ in 0..<6 {
-            let heartImageView = UIImageView(image: UIImage(named: "heart"))
+            let heartImageView = UIImageView(image: UIImage(named: "heartFill"))
+            heartImageView.contentMode = .scaleAspectFit
             livesStackView.addArrangedSubview(heartImageView)
         }
-
-        livesStackView.spacing = 10
-        livesStackView.distribution = .fillEqually
     }
 
     private func layoutLetterStackView() {
+        lettersStackView.spacing = 0
+        lettersStackView.axis = .vertical
+        lettersStackView.distribution = .fillEqually
+        view.addSubview(lettersStackView)
+        
         let topRow = UIStackView()
         topRow.axis = .horizontal
         topRow.distribution = .fillEqually
-        topRow.spacing = 3
         lettersStackView.addArrangedSubview(topRow)
 
         let midRow = UIStackView()
         midRow.axis = .horizontal
         midRow.distribution = .fillEqually
-        midRow.spacing = 3
         lettersStackView.addArrangedSubview(midRow)
 
         let bottomRow = UIStackView()
         bottomRow.axis = .horizontal
         bottomRow.distribution = .fillEqually
-        bottomRow.spacing = 3
         lettersStackView.addArrangedSubview(bottomRow)
 
         // 0 - 12 , 13 - alphaArray.count
         for i in 0..<alphabetArray.count {
             let letterButton = UIButton(type: .system)
             letterButton.setTitle(alphabetArray[i], for: .normal)
+            letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 24)
             letterButton.addTarget(self, action: #selector(didTapLetterButton), for: .touchUpInside)
             lettersButtonArray.append(letterButton)
 
@@ -65,13 +70,10 @@ class ViewController: UIViewController {
                 topRow.addArrangedSubview(letterButton)
             } else if i < 18 {
                 midRow.addArrangedSubview(letterButton)
-            }else {
+            } else {
                 bottomRow.addArrangedSubview(letterButton)
             }
         }
-
-        lettersStackView.spacing = 10
-        lettersStackView.distribution = .fillEqually
     }
 
     @objc func didTapLetterButton() {
@@ -86,6 +88,13 @@ class ViewController: UIViewController {
         }
     }
 
+    @objc func loadWords() {
+        if let wordsURL = Bundle.main.url(forResource: "Words", withExtension: "txt") {
+            if let words = try? String(contentsOf: wordsURL) {
+                wordsArray = words.components(separatedBy: "\n")
+            }
+        }
+    }
     
 
 }
