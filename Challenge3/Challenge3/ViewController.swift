@@ -12,19 +12,38 @@ class ViewController: UIViewController {
 
     @IBOutlet var livesStackView: UIStackView!
     @IBOutlet var lettersStackView: UIStackView!
+    @IBOutlet var wordStackView: UIStackView!
+    @IBOutlet var usedLettersStackView: UIStackView!
 
     var alphabetArray = [String]()
     var wordsArray = [String]()
     var lettersButtonArray = [UIButton]()
+    var guessWord: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "New Game", style: .plain, target: self, action: #selector(newGame))
 
         performSelector(inBackground: #selector(loadAlphabet), with: nil)
         performSelector(inBackground: #selector(loadWords), with: nil)
 
         layoutLivesStackView()
         layoutLetterStackView()
+    }
+
+    private func layoutWordStackView() {
+        emptyStackView(stackView: wordStackView)
+        guard let word = wordsArray.shuffled().first else { return }
+        guessWord = word
+        wordStackView.distribution = .fillEqually
+        wordStackView.spacing = 3
+        for char in word {
+            let label = UILabel()
+            label.text = "\(char)"
+            label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+            wordStackView.addArrangedSubview(label)
+        }
     }
 
     private func layoutLivesStackView() {
@@ -76,10 +95,38 @@ class ViewController: UIViewController {
         }
     }
 
-    @objc func didTapLetterButton() {
+    private func layoutUsedLetterStackView(letter: String?) {
+        guard let letter = letter else { return }
+        let label = UILabel()
+        label.textColor = guessWord.contains(letter) ? .green : .red
+        label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
 
+        usedLettersStackView.distribution = .fillEqually
+        usedLettersStackView.spacing = 3
+        usedLettersStackView.addArrangedSubview(label)
     }
 
+    private func emptyStackView(stackView: UIStackView) {
+        while stackView.arrangedSubviews.count < 0 {
+            if let view = stackView.arrangedSubviews.last {
+                stackView.removeArrangedSubview(view)
+            }
+        }
+    }
+
+    @objc func newGame() {
+        layoutWordStackView()
+    }
+
+    @objc func didTapLetterButton(_ sender: UIButton) {
+//        sender.isHidden = true
+//        layoutUsedLetterStackView(letter: sender.titleLabel?.text)
+        let view = UIView()
+        view.backgroundColor = .blue
+        usedLettersStackView.distribution = .fillEqually
+        usedLettersStackView.spacing = 3
+        usedLettersStackView.addArrangedSubview(view)
+    }
     @objc func loadAlphabet() {
         if let alphabetURL = Bundle.main.url(forResource: "Letters", withExtension: "txt") {
             if let alphabet = try? String(contentsOf: alphabetURL) {
@@ -92,6 +139,9 @@ class ViewController: UIViewController {
         if let wordsURL = Bundle.main.url(forResource: "Words", withExtension: "txt") {
             if let words = try? String(contentsOf: wordsURL) {
                 wordsArray = words.components(separatedBy: "\n")
+                DispatchQueue.main.async {
+                    self.layoutWordStackView()
+                }
             }
         }
     }

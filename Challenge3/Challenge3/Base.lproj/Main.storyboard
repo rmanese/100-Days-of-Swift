@@ -18,21 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="200" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NgK-kH-uqB">
-                                <rect key="frame" x="24" y="202" width="327" height="200"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="200" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NgK-kH-uqB">
+                                <rect key="frame" x="24" y="451" width="327" height="200"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="110" translatesAutoresizingMaskIntoConstraints="NO" id="CqQ-fT-l3j">
-                                <rect key="frame" x="24" y="72" width="327" height="110"/>
+                                <rect key="frame" x="24" y="183" width="327" height="110"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="327" placeholderIntrinsicHeight="79" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wga-r9-g9y" userLabel="Word Stack View">
+                                <rect key="frame" x="24" y="80" width="327" height="79"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="CqQ-fT-l3j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="9yP-hq-gnS"/>
-                            <constraint firstItem="CqQ-fT-l3j" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="DIp-RD-071"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CqQ-fT-l3j" secondAttribute="trailing" constant="24" id="KlK-lk-5gr"/>
-                            <constraint firstItem="NgK-kH-uqB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="XtD-6j-AFd"/>
-                            <constraint firstItem="NgK-kH-uqB" firstAttribute="top" secondItem="CqQ-fT-l3j" secondAttribute="bottom" constant="20" id="gv7-fr-0LO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NgK-kH-uqB" secondAttribute="trailing" constant="24" id="xIZ-vF-qMK"/>
+                            <constraint firstItem="CqQ-fT-l3j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="CWa-rF-Do1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NgK-kH-uqB" secondAttribute="trailing" constant="24" id="IQu-k2-e8i"/>
+                            <constraint firstItem="CqQ-fT-l3j" firstAttribute="top" secondItem="Wga-r9-g9y" secondAttribute="bottom" constant="24" id="VXI-g0-tns"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NgK-kH-uqB" secondAttribute="bottom" constant="16" id="WtU-pp-gLL"/>
+                            <constraint firstItem="Wga-r9-g9y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="bcA-j5-BQy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wga-r9-g9y" secondAttribute="trailing" constant="24" id="c23-BL-AwC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CqQ-fT-l3j" secondAttribute="trailing" constant="24" id="crY-Hk-aBK"/>
+                            <constraint firstItem="NgK-kH-uqB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="e0M-5I-xpM"/>
+                            <constraint firstItem="NgK-kH-uqB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="CqQ-fT-l3j" secondAttribute="bottom" constant="16" id="gFo-bT-quL"/>
+                            <constraint firstItem="Wga-r9-g9y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="jJM-10-e2B"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -40,6 +47,7 @@
                     <connections>
                         <outlet property="lettersStackView" destination="NgK-kH-uqB" id="ih2-RR-aUm"/>
                         <outlet property="livesStackView" destination="CqQ-fT-l3j" id="dEu-HR-1sk"/>
+                        <outlet property="wordStackView" destination="Wga-r9-g9y" id="EUJ-Du-Eoh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
