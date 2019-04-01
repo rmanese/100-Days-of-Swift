@@ -12,8 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var livesStackView: UIStackView!
     @IBOutlet var lettersStackView: UIStackView!
-    @IBOutlet var wordStackView: UIStackView!
-    @IBOutlet var usedLettersStackView: UIStackView!
+    @IBOutlet var guessWordLabel: UILabel!
 
     var alphabetArray = [String]()
     var wordsArray = [String]()
@@ -33,16 +32,9 @@ class ViewController: UIViewController {
     }
 
     private func layoutWordStackView() {
-        emptyStackView(stackView: wordStackView)
         guard let word = wordsArray.shuffled().first else { return }
-        guessWord = word
-        wordStackView.distribution = .fillEqually
-        wordStackView.spacing = 3
-        for char in word {
-            let label = UILabel()
-            label.text = "\(char)"
-            label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-            wordStackView.addArrangedSubview(label)
+        for _ in word {
+            guessWordLabel.text = guessWordLabel.text ?? "" + "_ "
         }
     }
 
@@ -95,22 +87,9 @@ class ViewController: UIViewController {
         }
     }
 
-    private func layoutUsedLetterStackView(letter: String?) {
-        guard let letter = letter else { return }
-        let label = UILabel()
-        label.textColor = guessWord.contains(letter) ? .green : .red
-        label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-
-        usedLettersStackView.distribution = .fillEqually
-        usedLettersStackView.spacing = 3
-        usedLettersStackView.addArrangedSubview(label)
-    }
-
     private func emptyStackView(stackView: UIStackView) {
-        while stackView.arrangedSubviews.count < 0 {
-            if let view = stackView.arrangedSubviews.last {
-                stackView.removeArrangedSubview(view)
-            }
+        for subView in stackView.subviews {
+            subView.removeFromSuperview()
         }
     }
 
@@ -118,15 +97,15 @@ class ViewController: UIViewController {
         layoutWordStackView()
     }
 
-    @objc func didTapLetterButton(_ sender: UIButton) {
-//        sender.isHidden = true
-//        layoutUsedLetterStackView(letter: sender.titleLabel?.text)
-        let view = UIView()
-        view.backgroundColor = .blue
-        usedLettersStackView.distribution = .fillEqually
-        usedLettersStackView.spacing = 3
-        usedLettersStackView.addArrangedSubview(view)
+    private func checkAnswer() {
+
     }
+
+    @objc func didTapLetterButton(_ sender: UIButton) {
+        guard let letter = sender.titleLabel?.text else { return }
+        print(letter)
+    }
+
     @objc func loadAlphabet() {
         if let alphabetURL = Bundle.main.url(forResource: "Letters", withExtension: "txt") {
             if let alphabet = try? String(contentsOf: alphabetURL) {
