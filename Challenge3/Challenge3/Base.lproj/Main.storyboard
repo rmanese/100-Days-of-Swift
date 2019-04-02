@@ -19,9 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="110" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CqQ-fT-l3j">
-                                <rect key="frame" x="8" y="100" width="359" height="110"/>
+                                <rect key="frame" x="8" y="325" width="359" height="110"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="110" placeholderIntrinsicHeight="200" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NgK-kH-uqB">
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="359" placeholderIntrinsicHeight="200" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NgK-kH-uqB">
                                 <rect key="frame" x="8" y="451" width="359" height="200"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvu-Tl-rEW">
@@ -30,11 +30,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="110" translatesAutoresizingMaskIntoConstraints="NO" id="2qq-z8-92H">
+                                <rect key="frame" x="8" y="92" width="359" height="110"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="NgK-kH-uqB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="HGk-ga-bGl"/>
-                            <constraint firstItem="CqQ-fT-l3j" firstAttribute="top" secondItem="cvu-Tl-rEW" secondAttribute="bottom" constant="24" id="a1w-Eg-1d1"/>
+                            <constraint firstItem="NgK-kH-uqB" firstAttribute="top" secondItem="CqQ-fT-l3j" secondAttribute="bottom" constant="16" id="J2t-zX-fy3"/>
+                            <constraint firstItem="2qq-z8-92H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="VRx-HQ-lik"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cvu-Tl-rEW" secondAttribute="trailing" constant="8" id="aYb-3X-aaP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NgK-kH-uqB" secondAttribute="trailing" constant="8" id="cC7-Pp-Z12"/>
                             <constraint firstItem="cvu-Tl-rEW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="g6M-2f-DRv"/>
@@ -42,6 +46,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CqQ-fT-l3j" secondAttribute="trailing" constant="8" id="j91-cV-7fj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NgK-kH-uqB" secondAttribute="bottom" constant="16" id="lmy-bW-JUn"/>
                             <constraint firstItem="CqQ-fT-l3j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="njE-99-o2O"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2qq-z8-92H" secondAttribute="trailing" constant="8" id="rGb-ti-ohU"/>
+                            <constraint firstItem="2qq-z8-92H" firstAttribute="top" secondItem="cvu-Tl-rEW" secondAttribute="bottom" constant="16" id="zTc-Od-5ct"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -50,6 +56,7 @@
                         <outlet property="guessWordLabel" destination="cvu-Tl-rEW" id="eaw-Vf-EAL"/>
                         <outlet property="lettersStackView" destination="NgK-kH-uqB" id="ih2-RR-aUm"/>
                         <outlet property="livesStackView" destination="CqQ-fT-l3j" id="dEu-HR-1sk"/>
+                        <outlet property="wrongGuessStackView" destination="2qq-z8-92H" id="Hvy-5H-nLr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

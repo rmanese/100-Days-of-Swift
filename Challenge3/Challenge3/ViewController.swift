@@ -5,6 +5,11 @@
 //  Created by Roberto Manese III on 3/14/19.
 //  Copyright © 2019 jawnyawn. All rights reserved.
 //
+// NOTES FOR NEXT TIME:
+// - letter stack view does not appear 100% of times
+// - add logic to finish round
+// - create heart animation
+// - create alert popup for when round is complete
 
 import UIKit
 
@@ -12,12 +17,16 @@ class ViewController: UIViewController {
 
     @IBOutlet var livesStackView: UIStackView!
     @IBOutlet var lettersStackView: UIStackView!
+    @IBOutlet var wrongGuessStackView: UIStackView!
     @IBOutlet var guessWordLabel: UILabel!
 
     var alphabetArray = [String]()
     var wordsArray = [String]()
     var lettersButtonArray = [UIButton]()
+    var usedLettersArray = [String]()
+    var wrongLettersArray = [String]()
     var guessWord: String = ""
+    var lives = 6
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +42,14 @@ class ViewController: UIViewController {
 
     private func layoutWordStackView() {
         guard let word = wordsArray.shuffled().first else { return }
+        print(word)
+        var labelText = ""
+        usedLettersArray = []
+        guessWord = word
         for _ in word {
-            guessWordLabel.text = guessWordLabel.text ?? "" + "_ "
+            labelText += "_ "
         }
+        guessWordLabel.text = labelText
     }
 
     private func layoutLivesStackView() {
@@ -52,7 +66,6 @@ class ViewController: UIViewController {
         lettersStackView.spacing = 0
         lettersStackView.axis = .vertical
         lettersStackView.distribution = .fillEqually
-        view.addSubview(lettersStackView)
         
         let topRow = UIStackView()
         topRow.axis = .horizontal
@@ -97,13 +110,26 @@ class ViewController: UIViewController {
         layoutWordStackView()
     }
 
-    private func checkAnswer() {
-
+    private func fillWord() {
+        var promptWord = ""
+        for letter in guessWord {
+            let guess = String(letter).uppercased()
+            let fill = usedLettersArray.contains(guess) ? guess : "_ "
+            promptWord += fill
+        }
+        guessWordLabel.text = promptWord
     }
 
     @objc func didTapLetterButton(_ sender: UIButton) {
         guard let letter = sender.titleLabel?.text else { return }
-        print(letter)
+        sender.isHidden = true
+        usedLettersArray.append(letter)
+        if guessWord.contains(Character(letter).lowercased()) {
+            fillWord()
+        } else {
+            // fill wrong guess stack view, animate heart
+
+        }
     }
 
     @objc func loadAlphabet() {
@@ -124,6 +150,5 @@ class ViewController: UIViewController {
             }
         }
     }
-    
 
 }
