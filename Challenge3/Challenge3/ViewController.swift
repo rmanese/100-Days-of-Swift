@@ -56,6 +56,9 @@ class ViewController: UIViewController {
         for _ in 0..<6 {
             let heartImageView = UIImageView(image: UIImage(named: "heartFill"))
             heartImageView.contentMode = .scaleAspectFit
+            heartImageView.layer.borderColor = UIColor.black.cgColor
+            heartImageView.layer.borderWidth = 2
+            heartImageView.layer.cornerRadius = 5
             livesStackView.addArrangedSubview(heartImageView)
         }
     }
@@ -85,6 +88,9 @@ class ViewController: UIViewController {
             let letterButton = UIButton(type: .system)
             letterButton.setTitle(alphabetArray[i], for: .normal)
             letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 24)
+            letterButton.layer.borderColor = UIColor.black.cgColor
+            letterButton.layer.borderWidth = 2
+            letterButton.layer.cornerRadius = 5
             letterButton.addTarget(self, action: #selector(didTapLetterButton), for: .touchUpInside)
             lettersButtonArray.append(letterButton)
 

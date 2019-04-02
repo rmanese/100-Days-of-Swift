@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="110" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CqQ-fT-l3j">
-                                <rect key="frame" x="8" y="325" width="359" height="110"/>
+                                <rect key="frame" x="8" y="310.5" width="359" height="110"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="359" placeholderIntrinsicHeight="200" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NgK-kH-uqB">
-                                <rect key="frame" x="8" y="451" width="359" height="200"/>
+                                <rect key="frame" x="8" y="467" width="359" height="200"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvu-Tl-rEW">
                                 <rect key="frame" x="8" y="76" width="359" height="0.0"/>
@@ -36,16 +36,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CqQ-fT-l3j" secondAttribute="trailing" constant="8" id="7ne-vT-fGT"/>
                             <constraint firstItem="NgK-kH-uqB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="HGk-ga-bGl"/>
-                            <constraint firstItem="NgK-kH-uqB" firstAttribute="top" secondItem="CqQ-fT-l3j" secondAttribute="bottom" constant="16" id="J2t-zX-fy3"/>
+                            <constraint firstItem="CqQ-fT-l3j" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="TlF-ub-Qeq"/>
                             <constraint firstItem="2qq-z8-92H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="VRx-HQ-lik"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cvu-Tl-rEW" secondAttribute="trailing" constant="8" id="aYb-3X-aaP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NgK-kH-uqB" secondAttribute="trailing" constant="8" id="cC7-Pp-Z12"/>
                             <constraint firstItem="cvu-Tl-rEW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="g6M-2f-DRv"/>
                             <constraint firstItem="cvu-Tl-rEW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="gn7-ru-XuH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CqQ-fT-l3j" secondAttribute="trailing" constant="8" id="j91-cV-7fj"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NgK-kH-uqB" secondAttribute="bottom" constant="16" id="lmy-bW-JUn"/>
-                            <constraint firstItem="CqQ-fT-l3j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="njE-99-o2O"/>
+                            <constraint firstItem="CqQ-fT-l3j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="lTy-fk-4a3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NgK-kH-uqB" secondAttribute="bottom" id="lmy-bW-JUn"/>
+                            <constraint firstItem="CqQ-fT-l3j" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lsl-By-MUw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2qq-z8-92H" secondAttribute="trailing" constant="8" id="rGb-ti-ohU"/>
                             <constraint firstItem="2qq-z8-92H" firstAttribute="top" secondItem="cvu-Tl-rEW" secondAttribute="bottom" constant="16" id="zTc-Od-5ct"/>
                         </constraints>
