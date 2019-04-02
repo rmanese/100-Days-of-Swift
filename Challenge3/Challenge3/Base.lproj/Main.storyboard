@@ -30,7 +30,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="110" translatesAutoresizingMaskIntoConstraints="NO" id="2qq-z8-92H">
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="110" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2qq-z8-92H">
                                 <rect key="frame" x="8" y="92" width="359" height="110"/>
                             </stackView>
                         </subviews>

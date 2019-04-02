@@ -24,9 +24,8 @@ class ViewController: UIViewController {
     var wordsArray = [String]()
     var lettersButtonArray = [UIButton]()
     var usedLettersArray = [String]()
-    var wrongLettersArray = [String]()
     var guessWord: String = ""
-    var lives = 6
+    var lives = 5
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +43,6 @@ class ViewController: UIViewController {
         guard let word = wordsArray.shuffled().first else { return }
         print(word)
         var labelText = ""
-        usedLettersArray = []
         guessWord = word
         for _ in word {
             labelText += "_ "
@@ -106,8 +104,23 @@ class ViewController: UIViewController {
         }
     }
 
+    private func animateHeart(index: Int) {
+        UIView.animate(withDuration: 0.7) {
+            self.livesStackView.subviews[index].layer.opacity = 0.10
+        }
+    }
+
     @objc func newGame() {
+        lives = 5
+        usedLettersArray = []
+        emptyStackView(stackView: wrongGuessStackView)
         layoutWordStackView()
+        for button in lettersButtonArray {
+            button.isHidden = false
+        }
+        for view in livesStackView.subviews {
+            view.layer.opacity = 1
+        }
     }
 
     private func fillWord() {
@@ -118,6 +131,22 @@ class ViewController: UIViewController {
             promptWord += fill
         }
         guessWordLabel.text = promptWord
+        if !promptWord.contains("_") {
+            let ac = UIAlertController(title: "You guessed right!", message: "The word was \(promptWord)", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "New Game?", style: .default) { (_) in
+                self.newGame()
+            })
+            ac.addAction(UIAlertAction(title: "Exit", style: .default))
+            present(ac, animated: true)
+        }
+    }
+
+    private func fillWrongGuess(letter: String) {
+        let label = UILabel()
+        label.text = letter
+        label.textColor = .red
+        label.font = UIFont.systemFont(ofSize: 20)
+        wrongGuessStackView.addArrangedSubview(label)
     }
 
     @objc func didTapLetterButton(_ sender: UIButton) {
@@ -127,9 +156,20 @@ class ViewController: UIViewController {
         if guessWord.contains(Character(letter).lowercased()) {
             fillWord()
         } else {
-            // fill wrong guess stack view, animate heart
-
+            fillWrongGuess(letter: letter)
+            animateHeart(index: 5 - lives)
+            if lives == 0 {
+                let ac = UIAlertController(title: "The word was \(guessWord)", message: "You guessed wrong too many times!", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "New game?", style: .default, handler: { (_) in
+                    self.newGame()
+                }))
+                ac.addAction(UIAlertAction(title: "Exit", style: .default))
+                present(ac, animated: true)
+            } else {
+                lives -= 1
+            }
         }
+
     }
 
     @objc func loadAlphabet() {
