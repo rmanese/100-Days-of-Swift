@@ -12,6 +12,7 @@
 		D23220FA225282C600EA7C88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D23220F8225282C600EA7C88 /* Main.storyboard */; };
 		D23220FC225282C800EA7C88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D23220FB225282C800EA7C88 /* Assets.xcassets */; };
 		D23220FF225282C800EA7C88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D23220FD225282C800EA7C88 /* LaunchScreen.storyboard */; };
+		D27BF739225452850061325D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27BF738225452850061325D /* Person.swift */; };
 		D2E2ED6B2252C3470046EBA4 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E2ED6A2252C3470046EBA4 /* PersonCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		D23220FB225282C800EA7C88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D23220FE225282C800EA7C88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2322100225282C800EA7C88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D27BF738225452850061325D /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D2E2ED6A2252C3470046EBA4 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +60,7 @@
 			children = (
 				D23220F4225282C600EA7C88 /* AppDelegate.swift */,
 				D23220F6225282C600EA7C88 /* ViewController.swift */,
+				D27BF738225452850061325D /* Person.swift */,
 				D23220F8225282C600EA7C88 /* Main.storyboard */,
 				D2E2ED6A2252C3470046EBA4 /* PersonCell.swift */,
 				D23220FB225282C800EA7C88 /* Assets.xcassets */,
@@ -140,6 +143,7 @@
 			files = (
 				D2E2ED6B2252C3470046EBA4 /* PersonCell.swift in Sources */,
 				D23220F7225282C600EA7C88 /* ViewController.swift in Sources */,
+				D27BF739225452850061325D /* Person.swift in Sources */,
 				D23220F5225282C600EA7C88 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
