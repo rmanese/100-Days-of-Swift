@@ -11,10 +11,21 @@ import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var scoreLabel: SKLabelNode!
+    var livesLabel: SKLabelNode!
 
     var score = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
+        }
+    }
+
+    var lives = 5 {
+        didSet {
+            if lives > 0 {
+                livesLabel.text = "Lives: \(lives)"
+            } else {
+                livesLabel.text = "G4M3 0V3R"
+            }
         }
     }
 
@@ -38,10 +49,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(background)
 
         scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
-        scoreLabel.text = "Score: 0"
+        scoreLabel.text = "Score: \(score)"
         scoreLabel.horizontalAlignmentMode = .right
         scoreLabel.position = CGPoint(x: 980, y: 700)
         addChild(scoreLabel)
+
+        livesLabel = SKLabelNode(fontNamed: "Chalkduster")
+        livesLabel.text = "Lives: \(lives)"
+        livesLabel.horizontalAlignmentMode = .right
+        livesLabel.position = CGPoint(x: 980, y: 650)
+        addChild(livesLabel)
+
 
         editLabel = SKLabelNode(fontNamed: "Chalkduster")
         editLabel.text = "Edit"
@@ -75,6 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if editingMode {
                 let size = CGSize(width: Int.random(in: 16...128), height: 16)
                 let box = SKSpriteNode(color: UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1), size: size)
+                box.name = "box"
                 box.zRotation = CGFloat.random(in: 0...3)
                 box.position = location
 
@@ -137,21 +156,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     func collision(between ball: SKNode, object: SKNode) {
         if object.name == "good" {
-            destroy(ball: ball)
+            destroy(object: ball)
             score += 1
         } else if object.name == "bad" {
-            destroy(ball: ball)
+            destroy(object: ball)
             score -= 1
+            lives -= 1
+        } else if object.name == "box" {
+            destroy(object: object)
         }
     }
 
-    func destroy(ball: SKNode) {
-        if let fireParticles = SKEmitterNode(fileNamed: "FireParticles") {
-            fireParticles.position = ball.position
+    func destroy(object: SKNode) {
+        if let fireParticles = SKEmitterNode(fileNamed: "FireParticles"), object.name == "ball" {
+            fireParticles.position = object.position
             addChild(fireParticles)
         }
 
-        ball.removeFromParent()
+        object.removeFromParent()
     }
 
     func didBegin(_ contact: SKPhysicsContact) {
