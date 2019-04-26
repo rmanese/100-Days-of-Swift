@@ -82,7 +82,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 box.physicsBody?.isDynamic = false
                 addChild(box)
             } else {
-                let ball = SKSpriteNode(imageNamed: "ballRed")
+                let color = generateRandomColor()
+                let ball = SKSpriteNode(imageNamed: color)
                 ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
                 ball.physicsBody?.restitution = 0.4
                 ball.physicsBody?.contactTestBitMask = ball.physicsBody?.collisionBitMask ?? 0
@@ -129,6 +130,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(slotGlow)
     }
 
+    private func generateRandomColor() -> String {
+        let colors: [String] = ["ballBlue", "ballCyan", "ballPurple", "ballYellow", "ballGrey", "ballGreen", "ballRed"]
+        return colors.randomElement() ?? ""
+    }
+
     func collision(between ball: SKNode, object: SKNode) {
         if object.name == "good" {
             destroy(ball: ball)
@@ -140,6 +146,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func destroy(ball: SKNode) {
+        if let fireParticles = SKEmitterNode(fileNamed: "FireParticles") {
+            fireParticles.position = ball.position
+            addChild(fireParticles)
+        }
+
         ball.removeFromParent()
     }
 
