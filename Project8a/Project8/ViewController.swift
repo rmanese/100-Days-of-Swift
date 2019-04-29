@@ -16,6 +16,13 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         super.viewDidLoad()
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+
+        let defaults = UserDefaults.standard
+        if let savedPeople = defaults.object(forKey: "people") as? Data {
+            if let decodedPeople = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedPeople) as? [Person] {
+                people = decodedPeople
+            }
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -49,6 +56,7 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
             guard let name = ac?.textFields?[0].text else { return }
             person.name = name
             self?.collectionView.reloadData()
+            self?.save()
         })
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
@@ -74,13 +82,20 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         let person = Person(name: "Unknown", image: imageName)
         people.append(person)
         collectionView.reloadData()
-
+        save()
         dismiss(animated: true)
     }
 
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
+    }
+
+    func save() {
+        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: people, requiringSecureCoding: false) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "people")
+        }
     }
 }
 
