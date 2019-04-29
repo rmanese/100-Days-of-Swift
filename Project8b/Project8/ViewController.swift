@@ -18,9 +18,14 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
 
         let defaults = UserDefaults.standard
+
         if let savedPeople = defaults.object(forKey: "people") as? Data {
-            if let decodedPeople = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedPeople) as? [Person] {
-                people = decodedPeople
+            let jsonDecoder = JSONDecoder()
+
+            do {
+                people = try jsonDecoder.decode([Person].self, from: savedPeople)
+            } catch {
+                print("failed to load people")
             }
         }
     }
@@ -58,12 +63,6 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
             self?.save()
             self?.collectionView.reloadData()
         })
-        ac.addAction(UIAlertAction(title: "Delete", style: .destructive) {
-            [weak ac, weak self] _ in
-            self?.people.remove(at: indexPath.row)
-            self?.save()
-            self?.collectionView.reloadData()
-        })
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
     }
@@ -89,6 +88,7 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         people.append(person)
         save()
         collectionView.reloadData()
+
         dismiss(animated: true)
     }
 
@@ -98,10 +98,14 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
     }
 
     func save() {
-        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: people, requiringSecureCoding: false) {
+        let jsonEncoder = JSONEncoder()
+        if let savedData = try? jsonEncoder.encode(people) {
             let defaults = UserDefaults.standard
             defaults.set(savedData, forKey: "people")
+        } else {
+            print("failed to save people")
         }
     }
+
 }
 

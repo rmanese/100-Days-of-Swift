@@ -24,7 +24,7 @@ class Person: NSObject, NSCoding {
 
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: "name")
-        aCoder.encode(image, forKey: "iamge")
+        aCoder.encode(image, forKey: "image")
     }
 
 }
