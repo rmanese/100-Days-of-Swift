@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UITableViewController {
 
+    let defaults = UserDefaults.standard
+
     var pictures: [String] = []
     static var totalPictures: Int = 0
 
@@ -20,6 +22,11 @@ class ViewController: UITableViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
         performSelector(inBackground: #selector(loadImages), with: nil)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
 
     @objc func loadImages() {
@@ -41,19 +48,29 @@ class ViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let image = pictures[indexPath.row]
+        let timesViewed = defaults.integer(forKey: image)
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
-        cell.textLabel?.text = self.pictures[indexPath.row]
+        cell.textLabel?.text = image
+        cell.detailTextLabel?.text = "Viewed \(timesViewed) times"
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-            vc.selectedImage = self.pictures[indexPath.row]
+            let image = pictures[indexPath.row]
+            updateViewCount(image: image)
+            vc.selectedImage = image
             vc.imageNumber = indexPath.row + 1
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
 
+    func updateViewCount(image: String) {
+        var timesViewed = defaults.integer(forKey: image)
+        timesViewed += 1
+        defaults.set(timesViewed, forKey: image)
     }
 
 }
