@@ -14,18 +14,24 @@ class ViewController: UIViewController {
     @IBOutlet var button2: UIButton!
     @IBOutlet var button3: UIButton!
 
+    var defaults = UserDefaults.standard
+
     var countries: [String] = []
     var score: Int = 0
     var correctAnswer: Int = 0
-    var rounds: Int = 0
+    var rounds: Int = 1
+    var highScore = 0
     var shouldDisplayScore: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Show score", style: .plain, target: self, action: #selector(toggleScore))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Show score", style: .plain, target: self, action: #selector(toggleScore))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Round \(rounds) of 10", style: .plain, target: self, action: nil)
 
-        self.countries += [
+        highScore = defaults.integer(forKey: "highScore")
+
+        countries += [
             "estonia", "france", "germany",
             "ireland", "italy", "monaco", "nigeria",
             "poland", "russia", "spain", "uk", "us"
@@ -67,17 +73,21 @@ class ViewController: UIViewController {
         rounds += 1
 
         if rounds == 10 {
-            let ac = UIAlertController(title: "Game Over", message: "Your final score is: \(score)", preferredStyle: .alert)
+            let message = generateEndGameMessage(score: score)
+            let ac = UIAlertController(title: "Game Over", message: message, preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Play again?", style: .default, handler: askQuestion))
             ac.addAction(UIAlertAction(title: "Quit", style: .default, handler: nil))
             self.present(ac, animated: true)
             score = 0
-            rounds = 0
+            rounds = 1
         } else {
             let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
             self.present(ac, animated: true)
         }
+
+        navigationItem.rightBarButtonItem?.title = "Score: \(score)"
+        navigationItem.leftBarButtonItem?.title = "Round \(rounds) of 10"
     }
 
     func formatCountry(name: String) -> String {
@@ -91,6 +101,17 @@ class ViewController: UIViewController {
             self.navigationItem.rightBarButtonItem?.title = "Score: \(score)"
         } else {
             self.navigationItem.rightBarButtonItem?.title = "Show Score"
+        }
+    }
+
+    private func generateEndGameMessage(score: Int) -> String {
+        if score > highScore {
+            defaults.set(score, forKey: "highScore")
+            return "Congrats you beat the high score! Your final score is \(score)"
+        } else if score == highScore {
+            return "Congrats you tied the high score! Your final score is \(score)"
+        } else {
+            return "Your final score is: \(score)"
         }
     }
 
