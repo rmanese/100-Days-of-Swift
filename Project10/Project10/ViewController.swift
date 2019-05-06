@@ -40,7 +40,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
         currentImage = image
-        dismiss(animated: true)
+        dismiss(animated: true) {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.imageView.alpha = 1
+            })
+        }
 
         let beginImage = CIImage(image: currentImage)
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
@@ -51,6 +55,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
+        imageView.alpha = 0
         present(picker, animated: true)
     }
 
