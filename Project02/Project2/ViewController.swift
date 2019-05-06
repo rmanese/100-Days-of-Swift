@@ -61,6 +61,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        })
         var title: String
         if sender.tag == correctAnswer {
             title = "Correct"
@@ -77,13 +80,17 @@ class ViewController: UIViewController {
             let ac = UIAlertController(title: "Game Over", message: message, preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Play again?", style: .default, handler: askQuestion))
             ac.addAction(UIAlertAction(title: "Quit", style: .default, handler: nil))
-            self.present(ac, animated: true)
+            self.present(ac, animated: true) {
+                sender.transform = .identity
+            }
             score = 0
             rounds = 1
         } else {
             let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
-            self.present(ac, animated: true)
+            self.present(ac, animated: true) {
+                sender.transform = .identity
+            }
         }
 
         navigationItem.rightBarButtonItem?.title = "Score: \(score)"
