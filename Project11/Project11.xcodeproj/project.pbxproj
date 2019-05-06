@@ -14,6 +14,8 @@
 		D2024277227A21A300E3CF03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2024275227A21A300E3CF03 /* Main.storyboard */; };
 		D2024279227A21A400E3CF03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2024278227A21A400E3CF03 /* Assets.xcassets */; };
 		D202427C227A21A400E3CF03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D202427A227A21A400E3CF03 /* LaunchScreen.storyboard */; };
+		D22228E82280B2CC008BDF3B /* SmokeScreen.sks in Resources */ = {isa = PBXBuildFile; fileRef = D22228E62280B2CC008BDF3B /* SmokeScreen.sks */; };
+		D22228E92280B2CC008BDF3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D22228E72280B2CC008BDF3B /* Assets.xcassets */; };
 		D23F5767227A5E950083A273 /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F5766227A5E950083A273 /* WhackSlot.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		D202427D227A21A400E3CF03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2024283227A231100E3CF03 /* whackBad.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whackBad.caf; sourceTree = "<group>"; };
 		D2024284227A231100E3CF03 /* whack.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = whack.caf; sourceTree = "<group>"; };
+		D22228E62280B2CC008BDF3B /* SmokeScreen.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SmokeScreen.sks; sourceTree = "<group>"; };
+		D22228E72280B2CC008BDF3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		D23F5766227A5E950083A273 /* WhackSlot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				D202426B227A21A300E3CF03 /* AppDelegate.swift */,
+				D22228E62280B2CC008BDF3B /* SmokeScreen.sks */,
+				D22228E72280B2CC008BDF3B /* Assets.xcassets */,
 				D202426D227A21A300E3CF03 /* GameScene.sks */,
 				D2024271227A21A300E3CF03 /* GameScene.swift */,
 				D23F5766227A5E950083A273 /* WhackSlot.swift */,
@@ -136,8 +142,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2024277227A21A300E3CF03 /* Main.storyboard in Resources */,
+				D22228E82280B2CC008BDF3B /* SmokeScreen.sks in Resources */,
 				D202426E227A21A300E3CF03 /* GameScene.sks in Resources */,
 				D2024279227A21A400E3CF03 /* Assets.xcassets in Resources */,
+				D22228E92280B2CC008BDF3B /* Assets.xcassets in Resources */,
 				D202427C227A21A400E3CF03 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

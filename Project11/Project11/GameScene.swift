@@ -11,9 +11,18 @@ import GameplayKit
 
 class GameScene: SKScene {
     var slots: [WhackSlot] = []
-    var gameScore: SKLabelNode!
 
-    var rounds = 0
+    var gameScore = SKLabelNode(fontNamed: "Chalkduster")
+    var roundsLabel = SKLabelNode(fontNamed: "Chalkduster")
+    var playAgainLabel = SKLabelNode(fontNamed: "Chalkduster")
+    var finalScore = SKLabelNode(fontNamed: "Chalkduster")
+    var gameOver = SKSpriteNode(imageNamed: "gameOver")
+
+    var rounds: Int = 0 {
+        didSet {
+            roundsLabel.text = "Round \(rounds) of 10"
+        }
+    }
     var popupTime = 0.85
 
     var score: Int = 0 {
@@ -29,12 +38,17 @@ class GameScene: SKScene {
         background.zPosition = -1
         addChild(background)
 
-        gameScore = SKLabelNode(fontNamed: "Chalkduster")
         gameScore.text = "Score: \(score)"
         gameScore.position = CGPoint(x: 8, y: 8)
         gameScore.horizontalAlignmentMode = .left
         gameScore.fontSize = 48
         addChild(gameScore)
+
+        roundsLabel.text = "Round 1 of 10"
+        roundsLabel.position = CGPoint(x: 8, y: 700)
+        roundsLabel.horizontalAlignmentMode = .left
+        roundsLabel.fontSize = 48
+        addChild(roundsLabel)
 
         for i in 0 ..< 5 { createSlot(at: CGPoint(x: 100 + (i * 170), y: 410)) }
         for i in 0 ..< 4 { createSlot(at: CGPoint(x: 180 + (i * 170), y: 320)) }
@@ -52,20 +66,42 @@ class GameScene: SKScene {
         let location = touch.location(in: self)
         let tappedNodes = nodes(at: location)
 
+        if tappedNodes.contains(playAgainLabel) {
+            resetGame()
+            return
+        }
+
         for node in tappedNodes {
             guard let whackSlot = node.parent?.parent as? WhackSlot else { continue  }
+            guard let smokeScreen = SKEmitterNode(fileNamed: "SmokeScreen") else { continue }
             if !whackSlot.isVisible { continue }
             if whackSlot.isHit { continue }
             whackSlot.hit()
             if node.name == "charFriend" {
-                score -= 5
                 run(SKAction.playSoundFileNamed("whackBad.caf", waitForCompletion: false))
+                score -= 5
+                smokeScreen.position = whackSlot.position
+                addChild(smokeScreen)
             } else if node.name == "charEnemy" {
                 whackSlot.charNode.xScale = 0.85
                 whackSlot.charNode.yScale = 0.85
                 score += 1
                 run(SKAction.playSoundFileNamed("whack.caf", waitForCompletion: false))
+                smokeScreen.position = whackSlot.position
+                addChild(smokeScreen)
             }
+        }
+    }
+
+    private func resetGame() {
+        rounds = 0
+        score = 0
+        gameOver.removeFromParent()
+        finalScore.removeFromParent()
+        playAgainLabel.removeFromParent()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            [weak self] in
+            self?.createEnemy()
         }
     }
 
@@ -79,14 +115,26 @@ class GameScene: SKScene {
     private func createEnemy() {
         rounds += 1
 
-        if rounds >= 30 {
+        if rounds >= 10 {
             for slot in slots {
                 slot.hide()
             }
 
-            let gameOver = SKSpriteNode(imageNamed: "gameOver")
             gameOver.position = CGPoint(x: 512, y: 384)
             gameOver.zPosition = 1
+
+            finalScore.position = CGPoint(x: 512, y: 300)
+            finalScore.zPosition = 1
+            finalScore.text = "Final score: \(score)"
+            finalScore.fontSize = 36
+
+            playAgainLabel.position = CGPoint(x: 512, y: 250)
+            playAgainLabel.zPosition = 1
+            playAgainLabel.text = "Play Again?"
+            playAgainLabel.fontSize = 36
+
+            addChild(playAgainLabel)
+            addChild(finalScore)
             addChild(gameOver)
             return
         }
