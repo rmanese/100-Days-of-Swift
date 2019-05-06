@@ -112,7 +112,7 @@ class ViewController: UIViewController {
             buttonView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -20),
 
 
-        ])
+            ])
 
         let width = 150
         let height = 80
@@ -143,7 +143,10 @@ class ViewController: UIViewController {
 
         currentAnswer.text = currentAnswer.text?.appending(buttonTitle)
         activatedButtons.append(sender)
-        sender.isHidden = true
+
+        UIView.animate(withDuration: 1) {
+            sender.alpha = 0
+        }
     }
 
     @objc func submitTapped(_ sender: UIButton) {
@@ -170,34 +173,29 @@ class ViewController: UIViewController {
         }
     }
 
-    func handleInvalidAnswer(action: UIAlertAction) {
-        currentAnswer.text = ""
-
+    private func showButtons() {
         for button in activatedButtons {
-            button.isHidden = false
+            button.alpha = 1
         }
+    }
 
+    private func handleInvalidAnswer(action: UIAlertAction) {
+        currentAnswer.text = ""
+        showButtons()
         activatedButtons.removeAll()
     }
 
-    func levelUp(action: UIAlertAction) {
+    private func levelUp(action: UIAlertAction) {
         level += 1
 
         solutions.removeAll(keepingCapacity: true)
         performSelector(inBackground: #selector(loadLevel), with: nil)
-
-        for button in letterButtonsArray {
-            button.isHidden = false
-        }
+        showButtons()
     }
 
     @objc func clearTapped(_ sender: UIButton) {
         currentAnswer.text = ""
-
-        for button in activatedButtons {
-            button.isHidden = false
-        }
-
+        showButtons()
         activatedButtons.removeAll()
     }
 
@@ -239,7 +237,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-
     }
 
 }
