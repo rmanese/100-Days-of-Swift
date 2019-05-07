@@ -1,0 +1,402 @@
+[
+    {
+        "name": "Alabama",
+        "abbreviation": "AL",
+        "capital": "Montgomery",
+        "population": 4887871,
+        "size": 155.4,
+        "notes": "Birmingham is the state's largest city."
+    },
+    {
+        "name": "Alaska",
+        "abbreviation": "AK",
+        "capital": "Juneau",
+        "population": 737438,
+        "size": 2716.7,
+        "notes": "Anchorage is the state's largest city."
+    },
+    {
+        "name": "Arizona",
+        "abbreviation": "AZ",
+        "capital": "    Phoenix",
+        "population": 7171646,
+        "size": 474.9,
+        "notes": "Most populous U.S. state capital and the only capital with more than 1 million citizens."
+    },
+    {
+        "name": "Arkansas",
+        "abbreviation": "AR",
+        "capital": "Little Rock",
+        "population": 3013825,
+        "size": 116.2,
+        "notes": ""
+    },
+    {
+        "name": "California",
+        "abbreviation": "CA",
+        "capital": "Sacramento",
+        "population": 39557045,
+        "size": 97.2,
+        "notes": "The state's largest city is Los Angeles."
+    },
+    {
+        "name": "Colorado",
+        "abbreviation": "CO",
+        "capital": "Denver",
+        "population": 5695564,
+        "size": 153.4,
+        "notes": "Denver was called Denver City until 1882."
+    },
+    {
+        "name": "Connecticut",
+        "abbreviation": "CT",
+        "capital": "Hartford",
+        "population": 3572665,
+        "size": 17.3,
+        "notes": "Bridgeport is the state's largest city. Hartford."
+    },
+    {
+        "name": "Delaware",
+        "abbreviation": "DE",
+        "capital": "Dover",
+        "population": 967171,
+        "size": 22.4,
+        "notes": "Wilmington is the state's largest city."
+    },
+    {
+        "name": "Florida",
+        "abbreviation": "FL",
+        "capital": "Tallahassee",
+        "population": 21299325,
+        "size": 95.7,
+        "notes": "Jacksonville is the largest city."
+    },
+    {
+        "name": "Georgia",
+        "abbreviation": "GA",
+        "capital": "Atlanta",
+        "population": 10519475,
+        "size": 131.7,
+        "notes": "State capital with the most populous metro area in the U.S."
+    },
+    {
+        "name": "Hawaii",
+        "abbreviation": "HI",
+        "capital": "Honolulu",
+        "population": 1420491,
+        "size": 85.7,
+        "notes": ""
+    },
+    {
+        "name": "Idaho",
+        "abbreviation": "ID",
+        "capital": "Boise",
+        "population": 1754208,
+        "size": 63.8,
+        "notes": ""
+    },
+    {
+        "name": "Illinois",
+        "abbreviation": "IL",
+        "capital": "Springfield",
+        "population": 12741080,
+        "size": 54.0,
+        "notes": "Chicago is the state's largest city."
+    },
+    {
+        "name": "Indiana",
+        "abbreviation": "IN",
+        "capital": "Indianapolis",
+        "population": 6691878,
+        "size": 361.5,
+        "notes": ""
+    },
+    {
+        "name": "Iowa",
+        "abbreviation": "IA",
+        "capital": "Des Moines",
+        "population": 3156145,
+        "size": 75.8,
+        "notes": ""
+    },
+    {
+        "name": "Kansas",
+        "abbreviation": "KS",
+        "capital": "Topeka",
+        "population": 2911505,
+        "size": 56.0,
+        "notes": "Wichita is the state's largest city."
+    },
+    {
+        "name": "Kentucky",
+        "abbreviation": "KY",
+        "capital": "Frankfort",
+        "population": 4468402,
+        "size": 14.7,
+        "notes": "Louisville is the state's largest city."
+    },
+    {
+        "name": "Louisiana",
+        "abbreviation": "LA",
+        "capital": "Baton Rouge",
+        "population": 4659978,
+        "size": 76.8,
+        "notes": "New Orleans is the state's largest city ."
+    },
+    {
+        "name": "Maine",
+        "abbreviation": "ME",
+        "capital": "Augusta",
+        "population": 1338404,
+        "size": 55.4,
+        "notes": "Portland is the state's largest city."
+    },
+    {
+        "name": "Maryland",
+        "abbreviation": "MD",
+        "capital": "Annapolis",
+        "population": 6042718,
+        "size": 6.73,
+        "notes": "Baltimore is the state's largest city and county."
+    },
+    {
+        "name": "Massachusetts",
+        "abbreviation": "MA",
+        "capital": "Boston",
+        "population": 6902149,
+        "size": 48.4,
+        "notes": "Longest continuously serving capital in the U.S."
+    },
+    {
+        "name": "Michigan",
+        "abbreviation": "MI",
+        "capital": "Lansing",
+        "population": 9995915,
+        "size": 35.0,
+        "notes": "Detroit is the state's largest city."
+    },
+    {
+        "name": "Minnesota",
+        "abbreviation": "MN",
+        "capital": "Saint Paul",
+        "population": 5611179,
+        "size": 52.8,
+        "notes": "Minneapolis, is the state's largest."
+    },
+    {
+        "name": "Mississippi",
+        "abbreviation": "MS",
+        "capital": "    Jackson",
+        "population": 2986530,
+        "size": 104.9,
+        "notes": "Only state capital that shares its status as county seat with another city (Raymond, Mississippi)."
+    },
+    {
+        "name": "Missouri",
+        "abbreviation": "MO",
+        "capital": "Jefferson City",
+        "population": 6126452,
+        "size": 27.3,
+        "notes": "Kansas City is the state's largest city, "
+    },
+    {
+        "name": "Montana",
+        "abbreviation": "MT",
+        "capital": "Helena",
+        "population": 1062305,
+        "size": 14.0,
+        "notes": "Billings is the state's largest city."
+    },
+    {
+        "name": "Nebraska",
+        "abbreviation": "NE",
+        "capital": "Lincoln",
+        "population": 1929268,
+        "size": 74.6,
+        "notes": "Omaha is the state's largest city."
+    },
+    {
+        "name": "Nevada",
+        "abbreviation": "NV",
+        "capital": "Carson City",
+        "population": 3034392,
+        "size": 143.4,
+        "notes": "Las Vegas is the state's largest city."
+    },
+    {
+        "name": "New Hampshire",
+        "abbreviation": "NH",
+        "capital": "Concord",
+        "population": 1356458,
+        "size": 64.3,
+        "notes": "Manchester is the state's largest city."
+    },
+    {
+        "name": "New Jersey",
+        "abbreviation": "NJ",
+        "capital": "Trenton",
+        "population": 8908520,
+        "size": 7.66,
+        "notes": "Newark is the state's largest city."
+    },
+    {
+        "name": "New Mexico",
+        "abbreviation": "NM",
+        "capital": "Santa Fe",
+        "population": 2095428,
+        "size": 37.3,
+        "notes": "Albuquerque is the state's largest city."
+    },
+    {
+        "name": "New York",
+        "abbreviation": "NY",
+        "capital": "Albany",
+        "population": 19542209,
+        "size": 21.4,
+        "notes": "New York City is the state's largest city."
+    },
+    {
+        "name": "North Carolina",
+        "abbreviation": "NC",
+        "capital": "Raleigh",
+        "population": 10383620,
+        "size": 114.6,
+        "notes": "Charlotte is the state's largest city."
+    },
+    {
+        "name": "North Dakota",
+        "abbreviation": "ND",
+        "capital": "    Bismarck",
+        "population": 760077,
+        "size": 26.9,
+        "notes": "Fargo is the state's largest city."
+    },
+    {
+        "name": "Ohio",
+        "abbreviation": "OH",
+        "capital": "Columbus",
+        "population": 11689442,
+        "size": 210.3,
+        "notes": "Third-largest state capital."
+    },
+    {
+        "name": "Oklahoma",
+        "abbreviation": "OK",
+        "capital": "Oklahoma City",
+        "population": 3943079,
+        "size": 607.0,
+        "notes": "Shortest serving current state capital."
+    },
+    {
+        "name": "Oregon",
+        "abbreviation": "OR",
+        "capital": "Salem",
+        "population": 4190713,
+        "size": 45.7,
+        "notes": "Portland is the state's largest city."
+    },
+    {
+        "name": "Pennsylvania",
+        "abbreviation": "PA",
+        "capital": "Harrisburg",
+        "population": 12807060,
+        "size": 8.11,
+        "notes": "Philadelphia is the state's largest city."
+    },
+    {
+        "name": "Rhode Island",
+        "abbreviation": "RI",
+        "capital": "Providence",
+        "population": 1057315,
+        "size": 18.5,
+        "notes": ""
+    },
+    {
+        "name": "South Carolina",
+        "abbreviation": "SC",
+        "capital": "Columbia",
+        "population": 5084127,
+        "size": 125.2,
+        "notes": "Charleston is the state's largest city."
+    },
+    {
+        "name": "South Dakota",
+        "abbreviation": "SD",
+        "capital": "Pierre",
+        "population": 882235,
+        "size": 13.0,
+        "notes": "Sioux Falls is the state's largest city."
+    },
+    {
+        "name": "Tennessee",
+        "abbreviation": "TN",
+        "capital": "Nashville",
+        "population": 6770010,
+        "size": 473.3,
+        "notes": ""
+    },
+    {
+        "name": "Texas",
+        "abbreviation": "TX",
+        "capital": "Austin",
+        "population": 28701845,
+        "size": 251.5,
+        "notes": "Houston is the state's largest city and the previous capital."
+    },
+    {
+        "name": "Utah",
+        "abbreviation": "UT",
+        "capital": "Salt Lake City",
+        "population": 3161105,
+        "size": 109.1,
+        "notes": ""
+    },
+    {
+        "name": "Vermont",
+        "abbreviation": "VT",
+        "capital": "Montpelier",
+        "population": 626299,
+        "size": 10.2,
+        "notes": "Burlington is the state's most populous city and has the lowest population."
+    },
+    {
+        "name": "Virginia",
+        "abbreviation": "VA",
+        "capital": "Richmond",
+        "population": 8517685,
+        "size": 60.1,
+        "notes": "Virginia Beach and Norfolk are the state's largest cities."
+    },
+    {
+        "name": "Washington",
+        "abbreviation": "WA",
+        "capital": "Olympia",
+        "population": 7535591,
+        "size": 16.7,
+        "notes": "Seattle is the state's largest city."
+    },
+    {
+        "name": "West Virginia",
+        "abbreviation": "WV",
+        "capital": "Charleston",
+        "population": 1805832,
+        "size": 31.6,
+        "notes": "Charleston is the smallest capital city."
+    },
+    {
+        "name": "Wisconsin",
+        "abbreviation": "WI",
+        "capital": "Madison",
+        "population": 5813568,
+        "size": 68.7,
+        "notes": "Milwaukee is the state's largest city."
+    },
+    {
+        "name": "Wyoming",
+        "abbreviation": "WY",
+        "capital": "Cheyenne",
+        "population": 577737,
+        "size": 21.1,
+        "notes": ""
+    }
+]
