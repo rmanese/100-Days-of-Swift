@@ -9,6 +9,10 @@
 import SpriteKit
 import GameplayKit
 
+enum ForceBomb {
+    case never, always, random
+}
+
 class GameScene: SKScene {
 
     var scoreLabel: SKLabelNode!
@@ -71,11 +75,29 @@ class GameScene: SKScene {
 
         redrawActiveSlice()
 
+        if !isSwooshSoundActive {
+            playSwooshSound()
+        }
     }
 
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         activeSliceFG.run(SKAction.fadeOut(withDuration: 0.25))
         activeSliceBG.run(SKAction.fadeOut(withDuration: 0.25))
+    }
+
+    func playSwooshSound() {
+        isSwooshSoundActive = true
+
+        let randomNumber = Int.random(in: 1...3)
+        let soundName = "swoosh\(randomNumber).caf"
+
+        let swooshSound = SKAction.playSoundFileNamed(soundName, waitForCompletion: true)
+
+        run(swooshSound) {
+            [weak self] in
+
+            self?.isSwooshSoundActive = false
+        }
     }
 
     func createScore() {
@@ -131,6 +153,26 @@ class GameScene: SKScene {
 
         activeSliceFG.path = path.cgPath
         activeSliceBG.path = path.cgPath
+    }
+
+    func createEnemy(forceBomb: ForceBomb = .random) {
+        let enemy: SKSpriteNode
+
+        var enemyType = Int.random(in: 0...6)
+
+        if forceBomb == .never {
+            enemyType = 1
+        } else if forceBomb == .always {
+            enemyType = 0
+        }
+
+        if enemyType == 0 {
+            // bomb
+        } else if enemyType == 1 {
+            enemy = SKSpriteNode(imageNamed: "penguin")
+            run(SKAction.playSoundFileNamed("launch.caf", waitForCompletion: false))
+            enemy.name = "enemy"
+        }
     }
 
 }
