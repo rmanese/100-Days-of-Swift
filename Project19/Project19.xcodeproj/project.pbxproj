@@ -17,6 +17,14 @@
 		D20010B122A1D4D900558F31 /* sliceHitBomb.sks in Resources */ = {isa = PBXBuildFile; fileRef = D20010AE22A1D4D900558F31 /* sliceHitBomb.sks */; };
 		D20010B222A1D4D900558F31 /* sliceFuse.sks in Resources */ = {isa = PBXBuildFile; fileRef = D20010AF22A1D4D900558F31 /* sliceFuse.sks */; };
 		D20010B322A1D4D900558F31 /* sliceHitEnemy.sks in Resources */ = {isa = PBXBuildFile; fileRef = D20010B022A1D4D900558F31 /* sliceHitEnemy.sks */; };
+		D210226322A6330A00B93A5F /* launch.caf in Resources */ = {isa = PBXBuildFile; fileRef = D20010AA22A1D48200558F31 /* launch.caf */; };
+		D210226422A6330C00B93A5F /* explosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = D20010AB22A1D48200558F31 /* explosion.caf */; };
+		D210226522A6330F00B93A5F /* sliceBombFuse.caf in Resources */ = {isa = PBXBuildFile; fileRef = D20010AD22A1D4C600558F31 /* sliceBombFuse.caf */; };
+		D210226622A6331100B93A5F /* swoosh1.caf in Resources */ = {isa = PBXBuildFile; fileRef = D20010A722A1D48200558F31 /* swoosh1.caf */; };
+		D210226722A6331300B93A5F /* swoosh2.caf in Resources */ = {isa = PBXBuildFile; fileRef = D20010A922A1D48200558F31 /* swoosh2.caf */; };
+		D210226822A6331600B93A5F /* swoosh3.caf in Resources */ = {isa = PBXBuildFile; fileRef = D20010A622A1D48100558F31 /* swoosh3.caf */; };
+		D210226922A6331900B93A5F /* whack.caf in Resources */ = {isa = PBXBuildFile; fileRef = D20010A822A1D48200558F31 /* whack.caf */; };
+		D210226A22A6331C00B93A5F /* wrong.caf in Resources */ = {isa = PBXBuildFile; fileRef = D20010AC22A1D48200558F31 /* wrong.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,12 +161,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D210226522A6330F00B93A5F /* sliceBombFuse.caf in Resources */,
+				D210226422A6330C00B93A5F /* explosion.caf in Resources */,
 				D200109A22A112ED00558F31 /* Main.storyboard in Resources */,
 				D20010B322A1D4D900558F31 /* sliceHitEnemy.sks in Resources */,
+				D210226622A6331100B93A5F /* swoosh1.caf in Resources */,
 				D200109122A112ED00558F31 /* GameScene.sks in Resources */,
 				D200109C22A112EF00558F31 /* Assets.xcassets in Resources */,
 				D200109F22A112EF00558F31 /* LaunchScreen.storyboard in Resources */,
+				D210226722A6331300B93A5F /* swoosh2.caf in Resources */,
+				D210226922A6331900B93A5F /* whack.caf in Resources */,
+				D210226322A6330A00B93A5F /* launch.caf in Resources */,
+				D210226822A6331600B93A5F /* swoosh3.caf in Resources */,
 				D20010B122A1D4D900558F31 /* sliceHitBomb.sks in Resources */,
+				D210226A22A6331C00B93A5F /* wrong.caf in Resources */,
 				D20010B222A1D4D900558F31 /* sliceFuse.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
